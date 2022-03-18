@@ -16,16 +16,12 @@ import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
 
+
+@RestController
+@RequestMapping(path = "/api/creditcard")
 public class CreditCardController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CreditCardController.class);
-
-    @Value("${spring.application.name}")
-    private String appName;
-    @Value("${microservice-creditcard.uri}")
-    private String urlAccounts;
-    @Value("${apiclient.uri}")
-    private String urlApigateway;
     @Autowired(required = false)
     private WebClient.Builder webClient;
     @Resource
@@ -34,7 +30,6 @@ public class CreditCardController {
     @GetMapping("/")
     public Flux<CreditCard> findAllCreditCard(){
         LOGGER.debug("Getting Credit Card!");
-        LOGGER.debug("Application cloud property: " + appName);
         return creditCardService.findAllCreditCard();
     }
 

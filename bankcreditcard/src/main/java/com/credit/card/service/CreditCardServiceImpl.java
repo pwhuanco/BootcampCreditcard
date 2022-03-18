@@ -7,6 +7,7 @@ import com.credit.card.dto.CreditMovementDto;
 import com.credit.card.repository.CreditCardRepository;
 import com.credit.card.repository.CreditMovementRepository;
 import com.credit.card.util.AppUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -17,11 +18,10 @@ import java.util.List;
 @Service
 public class CreditCardServiceImpl implements CreditCardService{
 
-
+    @Autowired
     private CreditCardRepository creditCardRepository;
-
+    @Autowired
     private CreditMovementRepository creditMovementRepository;
-
 
     public Flux<CreditCard> findAllCreditCard() {
         return creditCardRepository.findAll();
@@ -42,7 +42,6 @@ public class CreditCardServiceImpl implements CreditCardService{
                 .flatMap(creditCardRepository::save)
                 .map(AppUtils::entityToDto);
     }
-
 
     public Mono<Void> deleteByIdCreditCard(String id) {
         return creditCardRepository.deleteById(id);
@@ -130,10 +129,4 @@ public class CreditCardServiceImpl implements CreditCardService{
         Mono<CreditMovement> creditMovementFlux = Mono.just(movementById);
         return creditMovementFlux;
     }
-
-
-
-
-
-
 }
