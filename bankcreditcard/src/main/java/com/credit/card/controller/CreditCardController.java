@@ -68,6 +68,11 @@ public class CreditCardController {
         return creditCardService.consumeCard(idCard, consume);
     }
 
+    @GetMapping("/has-credit-card/{idClient}")
+    public CreditCard findCreditCardByIdClient(String idClient){
+        return creditCardService.findCreditCardByIdClient(idClient);
+    }
+
     @GetMapping("/pay/{idCard}/{pay}")
     public Mono<CreditMovementDto> payCard(String idCard, Double pay){
         return creditCardService.payCard(idCard, pay);

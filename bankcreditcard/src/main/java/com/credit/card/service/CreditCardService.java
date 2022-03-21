@@ -14,6 +14,7 @@ public interface CreditCardService {
     public Mono<CreditCard> saveCreditCard(CreditCard creditCard);
     public Mono<CreditCardDto> updateCreditCard(Mono<CreditCardDto> creditCardMono, String id);
     public Mono<Void> deleteByIdCreditCard(String id);
+    public CreditCard findCreditCardByIdClient(String idClient);
     public String seeBalance(String idCard);
     public Mono<CreditMovementDto> consumeCard(String idCard, Double consume);
     public Mono<CreditMovementDto> payCard(String idCard, Double pay);

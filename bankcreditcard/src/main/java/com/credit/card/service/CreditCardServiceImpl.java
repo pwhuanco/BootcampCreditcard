@@ -8,6 +8,9 @@ import com.credit.card.repository.CreditCardRepository;
 import com.credit.card.repository.CreditMovementRepository;
 import com.credit.card.util.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -46,6 +49,11 @@ public class CreditCardServiceImpl implements CreditCardService{
     public Mono<Void> deleteByIdCreditCard(String id) {
         return creditCardRepository.deleteById(id);
     }
+
+    public CreditCard findCreditCardByIdClient(String idClient){
+        return creditCardRepository.findCreditCardByIdClient(idClient);
+    }
+
 
     public String seeBalance(String idCard){
         Mono<CreditCard> card = creditCardRepository.findById(idCard);
