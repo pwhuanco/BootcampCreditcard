@@ -9,18 +9,18 @@ import reactor.core.publisher.Mono;
 
 public interface CreditCardService {
 
-    public Flux<CreditCard> findAllCreditCard();
-    public Mono<CreditCard> findByIdCreditCard(String id);
-    public Mono<CreditCard> saveCreditCard(CreditCard creditCard);
-    public Mono<CreditCardDto> updateCreditCard(Mono<CreditCardDto> creditCardMono, String id);
-    public Mono<Void> deleteByIdCreditCard(String id);
-    public CreditCard findCreditCardByIdClient(String idClient);
-    public String seeBalance(String idCard);
-    public Mono<CreditMovementDto> consumeCard(String idCard, Double consume);
-    public Mono<CreditMovementDto> payCard(String idCard, Double pay);
-    public Flux<CreditMovement> findAllCreditMovement();
-    public Flux<CreditMovement> findByIdCreditMovementByCard(String idCard);
-    public Mono<CreditMovement> findAllCreditMovementById(String idMovement);
+    Flux<CreditCard> findAllCreditCard();
+    Mono<CreditCard> findByIdCreditCard(String id);
+    Mono<CreditCard> saveCreditCard(CreditCard creditCard);
+    Mono<CreditCardDto> updateCreditCard(Mono<CreditCardDto> creditCardMono, String id);
+    Mono<Void> deleteByIdCreditCard(String id);
+    CreditCard findCreditCardByIdClient(String idClient);
+    String seeBalance(String idCard);
+    Mono<CreditMovementDto> consumeCard(String idCard, Double consume);
+    Mono<CreditMovementDto> payCard(String idCard, Double pay);
+    Flux<CreditMovement> findAllCreditMovement();
+    Flux<CreditMovement> findByIdCreditMovementByCard(String idCard);
+    Mono<CreditMovement> findAllCreditMovementById(String idMovement);
 
 
 
